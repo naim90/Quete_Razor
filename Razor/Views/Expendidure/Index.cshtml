@@ -1,0 +1,33 @@
+﻿@using Razor.Models;
+
+@model  List<Expendidure>
+
+<h1>Liste des dépenses</h1>
+
+<table>
+    <tr>
+        <th>Depenses</th>
+        <th>Total</th>
+    </tr>
+    <tbody>
+
+        @foreach (Expendidure a in Model)
+        {
+        <tr>
+            <td>Nom : @a.Name</td>
+            <td>Prix : @a.Price €</td>
+            <td>Acheté le : @a.Date</td>
+            <td>-</td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+
+        <tr>
+            <td>-</td>
+            <td>Total depenses : @Model.Sum(x=>x.Price) Euro</td>
+        </tr>
+
+    </tfoot>
+</table>
+
